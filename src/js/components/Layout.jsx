@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import Header from './Header'
 import Footer from './Footer'
 import  {fetchUsers} from '../actions/users';
+import  UserDetails from '../UserDetails';
 
 @connect((store) => {
     return {
@@ -16,16 +17,15 @@ export default class Layout extends React.Component {
     }
   
     render() {
-        const userList = this.props.users.map((user) => <li key={user.id}>{user.name} -- {user.age}</li>);
+        const userList = this.props.users.map((user) => <li key={user.id}>{user.name} -- {user.address}</li>);
 
         return ( 
             <div>
                 <Header />
                     <h2> Here is a list of our users </h2>
                     <ul>
-                        {userList}
+                        {}
                     </ul>
-                    {this.props.children}                    
                 <Footer />
             </div>
         );
